@@ -1,68 +1,341 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Viaan Website</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FreshMart Grocery</title>
 
-    <style>
-        body {
-            font-family: Arial;
-            background-color: black;
-            color: white;
-            text-align: center;
-            padding-top: 60px;
-        }
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        h1 {
-            color: red;
-            font-size: 40px;
-        }
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f7f9;
+      color: #222;
+    }
 
-        button {
-            background-color: red;
-            color: white;
-            border: none;
-            padding: 15px 25px;
-            font-size: 18px;
-            border-radius: 10px;
-            cursor: pointer;
-        }
+    header {
+      background: linear-gradient(135deg, #16a34a, #15803d);
+      color: white;
+      padding: 20px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-        button:hover {
-            background-color: darkred;
-        }
+    header h1 {
+      font-size: 32px;
+    }
 
-        #scaryImage {
-            display: none;
-            margin-top: 30px;
-            width: 350px;
-            border-radius: 12px;
-        }
-    </style>
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 25px;
+      font-weight: bold;
+    }
+
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 80px 8%;
+      background: white;
+      flex-wrap: wrap;
+    }
+
+    .hero-text {
+      max-width: 550px;
+    }
+
+    .hero h2 {
+      font-size: 54px;
+      margin-bottom: 20px;
+      color: #166534;
+    }
+
+    .hero p {
+      font-size: 20px;
+      line-height: 1.6;
+      margin-bottom: 30px;
+      color: #555;
+    }
+
+    .hero button {
+      background: #16a34a;
+      color: white;
+      border: none;
+      padding: 16px 28px;
+      font-size: 18px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .hero button:hover {
+      background: #15803d;
+      transform: scale(1.05);
+    }
+
+    .hero img {
+      width: 450px;
+      border-radius: 20px;
+      margin-top: 20px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin: 60px 0 30px;
+      font-size: 38px;
+      color: #166534;
+    }
+
+    .categories,
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 25px;
+      padding: 0 8% 60px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+    }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 20px;
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      color: #166534;
+    }
+
+    .price {
+      color: #16a34a;
+      font-size: 20px;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .banner {
+      background: linear-gradient(135deg, #166534, #22c55e);
+      color: white;
+      text-align: center;
+      padding: 70px 20px;
+      margin-top: 30px;
+    }
+
+    .banner h2 {
+      font-size: 42px;
+      margin-bottom: 20px;
+    }
+
+    .banner p {
+      font-size: 20px;
+      margin-bottom: 25px;
+    }
+
+    .banner button {
+      background: white;
+      color: #166534;
+      border: none;
+      padding: 15px 28px;
+      font-size: 18px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    footer {
+      background: #111827;
+      color: white;
+      text-align: center;
+      padding: 25px;
+      margin-top: 50px;
+    }
+
+    @media(max-width: 900px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .hero img {
+        width: 100%;
+        max-width: 450px;
+      }
+
+      nav {
+        display: none;
+      }
+
+      .hero h2 {
+        font-size: 40px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-    <h1>Welcome to Viaan Website ❤️</h1>
+  <header>
+    <h1>FreshMart 🛒</h1>
 
-    <p>Click the button if you dare...</p>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Products</a>
+      <a href="#">Offers</a>
+      <a href="#">Stores</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
 
-    <button onclick="showScaryImage()">
-        Click Me
-    </button>
+  <section class="hero">
 
-    <br>
+    <div class="hero-text">
+      <h2>Fresh Groceries Delivered Fast</h2>
+
+      <p>
+        Shop farm-fresh vegetables, fruits, dairy, snacks,
+        beverages, and daily essentials from FreshMart.
+      </p>
+
+      <button onclick="showMessage()">
+        Shop Now
+      </button>
+
+      <p id="message" style="margin-top:20px;font-weight:bold;"></p>
+    </div>
 
     <img
-        id="scaryImage"
-        src="https://images.unsplash.com/photo-1509248961158-e54f6934749c?q=80&w=1200&auto=format&fit=crop"
-        alt="Scary Image"
-    >
+      src="https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=1200&auto=format&fit=crop"
+      alt="Groceries"
+    />
 
-    <script>
-        function showScaryImage() {
-            document.getElementById("scaryImage").style.display = "block";
-        }
-    </script>
+  </section>
+
+  <h2 class="section-title">Shop by Category</h2>
+
+  <section class="categories">
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1610832958506-aa56368176cf?q=80&w=1200&auto=format&fit=crop">
+      <div class="card-content">
+        <h3>Fresh Fruits</h3>
+        <p>Organic and juicy fruits delivered daily.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?q=80&w=1200&auto=format&fit=crop">
+      <div class="card-content">
+        <h3>Vegetables</h3>
+        <p>Farm-fresh greens and vegetables.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1550583724-b2692b85b150?q=80&w=1200&auto=format&fit=crop">
+      <div class="card-content">
+        <h3>Dairy Products</h3>
+        <p>Milk, cheese, butter, and yogurt.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1577805947697-89e18249d767?q=80&w=1200&auto=format&fit=crop">
+      <div class="card-content">
+        <h3>Bakery</h3>
+        <p>Freshly baked breads and pastries.</p>
+      </div>
+    </div>
+
+  </section>
+
+  <h2 class="section-title">Featured Products</h2>
+
+  <section class="products">
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?q=80&w=1200&auto=format&fit=crop">
+      <div class="card-content">
+        <h3>Organic Apples</h3>
+        <p>Crisp and naturally sweet apples.</p>
+        <div class="price">$4.99</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1582515073490-39981397c445?q=80&w=1200&auto=format&fit=crop">
+      <div class="card-content">
+        <h3>Fresh Bread</h3>
+        <p>Warm artisan bread baked daily.</p>
+        <div class="price">$2.49</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?q=80&w=1200&auto=format&fit=crop">
+      <div class="card-content">
+        <h3>Orange Juice</h3>
+        <p>100% natural fresh orange juice.</p>
+        <div class="price">$3.99</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1519864600265-abb23847ef2c?q=80&w=1200&auto=format&fit=crop">
+      <div class="card-content">
+        <h3>Fresh Eggs</h3>
+        <p>Farm fresh premium eggs.</p>
+        <div class="price">$5.49</div>
+      </div>
+    </div>
+
+  </section>
+
+  <section class="banner">
+
+    <h2>Get Free Delivery on Orders Over $50</h2>
+
+    <p>
+      Fresh groceries delivered to your doorstep in under 60 minutes.
+    </p>
+
+    <button>
+      Start Shopping
+    </button>
+
+  </section>
+
+  <footer>
+    <p>© 2026 FreshMart Grocery Chain | Fresh Food. Fast Delivery.</p>
+  </footer>
+
+  <script>
+    function showMessage() {
+      document.getElementById("message").innerHTML =
+        "🛒 Welcome to FreshMart! Enjoy fresh groceries and fast delivery.";
+    }
+  </script>
 
 </body>
 </html>

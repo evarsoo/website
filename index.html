@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My First Website</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #f0f4f8;
+            text-align: center;
+            padding-top: 50px;
+        }
+
+        h1 {
+            color: #2563eb;
+        }
+
+        p {
+            font-size: 20px;
+        }
+
+        button {
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 18px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #1d4ed8;
+        }
+
+        img {
+            width: 300px;
+            margin-top: 20px;
+            border-radius: 12px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Welcome to My Website</h1>
+
+    <p>I built this website on my laptop!</p>
+
+    <button onclick="showMessage()">
+        Click Me
+    </button>
+
+    <p id="message"></p>
+
+    <img src="https://picsum.photos/300" alt="Random image">
+
+    <script>
+        function showMessage() {
+            document.getElementById("message").innerHTML =
+                "Great job! Your button works!";
+        }
+    </script>
+
+</body>
+</html>

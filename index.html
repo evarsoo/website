@@ -1,41 +1,40 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>My First Website</title>
+    <title>Viaan Website</title>
 
     <style>
         body {
             font-family: Arial;
-            background-color: #f0f4f8;
+            background-color: black;
+            color: white;
             text-align: center;
-            padding-top: 50px;
+            padding-top: 60px;
         }
 
         h1 {
-            color: #2563eb;
-        }
-
-        p {
-            font-size: 20px;
+            color: red;
+            font-size: 40px;
         }
 
         button {
-            background-color: #2563eb;
+            background-color: red;
             color: white;
             border: none;
-            padding: 12px 20px;
+            padding: 15px 25px;
             font-size: 18px;
-            border-radius: 8px;
+            border-radius: 10px;
             cursor: pointer;
         }
 
         button:hover {
-            background-color: #1d4ed8;
+            background-color: darkred;
         }
 
-        img {
-            width: 300px;
-            margin-top: 20px;
+        #scaryImage {
+            display: none;
+            margin-top: 30px;
+            width: 350px;
             border-radius: 12px;
         }
     </style>
@@ -43,22 +42,25 @@
 
 <body>
 
-    <h1>Welcome to Viaan Website</h1>
+    <h1>Welcome to Viaan Website ❤️</h1>
 
-    <p>I built this website on my laptop!</p>
+    <p>Click the button if you dare...</p>
 
-    <button onclick="showMessage()">
+    <button onclick="showScaryImage()">
         Click Me
     </button>
 
-    <p id="message"></p>
+    <br>
 
-    <img src="https://picsum.photos/300" alt="Random image">
+    <img
+        id="scaryImage"
+        src="https://images.unsplash.com/photo-1509248961158-e54f6934749c?q=80&w=1200&auto=format&fit=crop"
+        alt="Scary Image"
+    >
 
     <script>
-        function showMessage() {
-            document.getElementById("message").innerHTML =
-                "I am the smartest";
+        function showScaryImage() {
+            document.getElementById("scaryImage").style.display = "block";
         }
     </script>
 
